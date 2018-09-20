@@ -15,6 +15,21 @@ const LinkedList = function() {
     const next = this.head
     this.head = new Node({ val, next })
   }
+
+  this.get = (index) => {
+    let itemIndex = 0
+    let current = this.head
+    while (current) {
+      if (itemIndex === index) {
+        return current
+      }
+
+      current = current.next
+      itemIndex++
+    }
+
+    return -1
+  }
 }
 
 

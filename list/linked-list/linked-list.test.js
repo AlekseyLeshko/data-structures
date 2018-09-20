@@ -24,4 +24,18 @@ describe('linked-list', () => {
     expect(list.head.next.value).toEqual(3)
     expect(list.head.next.next).toBeUndefined()
   })
+
+  test('get by index', () => {
+    expect(list.get(0)).toEqual(-1)
+    expect(list.get(1)).toEqual(-1)
+
+    list.addAtHead(3)
+    expect(list.get(0).value).toEqual(3)
+
+    list.addAtHead(4)
+    list.addAtHead(5)
+
+    expect(list.get(1).value).toEqual(4)
+    expect(list.get(3).value).toEqual(-1)
+  })
 })
