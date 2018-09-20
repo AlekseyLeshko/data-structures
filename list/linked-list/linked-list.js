@@ -64,7 +64,7 @@ const LinkedList = function() {
       itemIndex++
     }
 
-    if (!current && itemIndex === index) {
+    if (!current) {
       this.addAtTail(val)
       return
     }

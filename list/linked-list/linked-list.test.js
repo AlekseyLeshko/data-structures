@@ -78,6 +78,14 @@ describe('linked-list', () => {
     expect(list.get(2).value).toEqual(7)
     expect(list.get(3).value).toEqual(2)
     expect(list.get(4).value).toEqual(3)
+
+    list.addAtIndex(6, 10)
+    expect(list.get(0).value).toEqual(1)
+    expect(list.get(1).value).toEqual(5)
+    expect(list.get(2).value).toEqual(7)
+    expect(list.get(3).value).toEqual(2)
+    expect(list.get(4).value).toEqual(3)
+    expect(list.get(5).value).toEqual(10)
   })
 
   test('delete at index', () => {
