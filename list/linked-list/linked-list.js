@@ -1,4 +1,5 @@
-const LinkedList = () => {
+const LinkedList = function() {
+  this.head = null
 }
 
-module.export = LinkedList
+module.exports = LinkedList
