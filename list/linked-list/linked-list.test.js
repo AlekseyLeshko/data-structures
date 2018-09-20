@@ -36,6 +36,6 @@ describe('linked-list', () => {
     list.addAtHead(5)
 
     expect(list.get(1).value).toEqual(4)
-    expect(list.get(3).value).toEqual(-1)
+    expect(list.get(3)).toEqual(-1)
   })
 })
