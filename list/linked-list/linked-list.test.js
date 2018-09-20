@@ -38,4 +38,18 @@ describe('linked-list', () => {
     expect(list.get(1).value).toEqual(4)
     expect(list.get(3)).toEqual(-1)
   })
+
+  test('add at tail', () => {
+    list.addAtTail(2)
+    expect(list.get(0).value).toEqual(2)
+
+    list.addAtTail(3)
+    expect(list.get(0).value).toEqual(2)
+    expect(list.get(1).value).toEqual(3)
+
+    list.addAtTail(4)
+    expect(list.get(0).value).toEqual(2)
+    expect(list.get(1).value).toEqual(3)
+    expect(list.get(2).value).toEqual(4)
+  })
 })

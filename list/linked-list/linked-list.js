@@ -30,6 +30,21 @@ const LinkedList = function() {
 
     return -1
   }
+
+  this.addAtTail = (val) => {
+    if (this.head === null) {
+      this.addAtHead(val)
+      return
+    }
+
+    let current = this.head
+    while (current.next) {
+      current = current.next
+    }
+
+    const next = new Node({ val })
+    current.next = next
+  }
 }
 
 
