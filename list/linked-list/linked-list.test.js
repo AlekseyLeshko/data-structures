@@ -52,4 +52,31 @@ describe('linked-list', () => {
     expect(list.get(1).value).toEqual(3)
     expect(list.get(2).value).toEqual(4)
   })
+
+  test('add at index', () => {
+    list.addAtIndex(0, 2)
+    expect(list.get(0).value).toEqual(2)
+
+    list.addAtIndex(1, 3)
+    expect(list.get(0).value).toEqual(2)
+    expect(list.get(1).value).toEqual(3)
+
+    list.addAtIndex(0, 1)
+    expect(list.get(0).value).toEqual(1)
+    expect(list.get(1).value).toEqual(2)
+    expect(list.get(2).value).toEqual(3)
+
+    list.addAtIndex(1, 5)
+    expect(list.get(0).value).toEqual(1)
+    expect(list.get(1).value).toEqual(5)
+    expect(list.get(2).value).toEqual(2)
+    expect(list.get(3).value).toEqual(3)
+
+    list.addAtIndex(2, 7)
+    expect(list.get(0).value).toEqual(1)
+    expect(list.get(1).value).toEqual(5)
+    expect(list.get(2).value).toEqual(7)
+    expect(list.get(3).value).toEqual(2)
+    expect(list.get(4).value).toEqual(3)
+  })
 })

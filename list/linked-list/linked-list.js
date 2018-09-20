@@ -45,6 +45,33 @@ const LinkedList = function() {
     const next = new Node({ val })
     current.next = next
   }
+
+  this.addAtIndex = (index, val) => {
+    if (index === 0) {
+      this.addAtHead(val)
+      return
+    }
+
+
+    let itemIndex = 0
+    let current = this.head
+    while (current) {
+      if (itemIndex === index - 1) {
+        break
+      }
+
+      current = current.next
+      itemIndex++
+    }
+
+    if (!current && itemIndex === index) {
+      this.addAtTail(val)
+      return
+    }
+
+    const next = new Node({ val, next: current.next })
+    current.next = next
+  }
 }
 
 
