@@ -72,6 +72,25 @@ const LinkedList = function() {
     const next = new Node({ val, next: current.next })
     current.next = next
   }
+
+  this.deleteAtIndex = (index) => {
+    let itemIndex = 0
+    let current = this.head
+    while (current) {
+      if (itemIndex === index - 1) {
+        break
+      }
+
+      current = current.next
+      itemIndex++
+    }
+
+    if (!current) {
+      return
+    }
+
+    current.next = current.next.next
+  }
 }
 
 

@@ -79,4 +79,28 @@ describe('linked-list', () => {
     expect(list.get(3).value).toEqual(2)
     expect(list.get(4).value).toEqual(3)
   })
+
+  test('delete at index', () => {
+    list.deleteAtIndex(2)
+
+    expect(list.head).toBeNull()
+
+    list.addAtHead(1)
+    list.addAtHead(2)
+    list.addAtHead(3)
+    list.deleteAtIndex(1)
+
+    expect(list.get(0).value).toEqual(3)
+    expect(list.get(1).value).toEqual(1)
+    expect(list.get(1).next).toBeUndefined()
+
+    list.addAtHead(4)
+    list.addAtHead(5)
+    list.deleteAtIndex(3)
+
+    expect(list.get(0).value).toEqual(5)
+    expect(list.get(1).value).toEqual(4)
+    expect(list.get(2).value).toEqual(3)
+    expect(list.get(2).next).toBeUndefined()
+  })
 })
