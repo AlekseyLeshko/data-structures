@@ -17,18 +17,16 @@ const LinkedList = function() {
   }
 
   this.get = (index) => {
-    let itemIndex = 0
     let current = this.head
-    while (current) {
-      if (itemIndex === index) {
-        return current
+    for (let i = 0; i < index; i++) {
+      if (!current) {
+        break
       }
 
       current = current.next
-      itemIndex++
     }
 
-    return -1
+    return current ? current.value : -1
   }
 
   this.addAtTail = (val) => {
@@ -42,8 +40,7 @@ const LinkedList = function() {
       current = current.next
     }
 
-    const next = new Node({ val })
-    current.next = next
+    current.next = new Node({ val })
   }
 
   this.addAtIndex = (index, val) => {
@@ -52,21 +49,17 @@ const LinkedList = function() {
       return
     }
 
-
-    let itemIndex = 0
-    let current = this.head
-    while (current) {
-      if (itemIndex === index - 1) {
-        break
-      }
-
-      current = current.next
-      itemIndex++
+    if (!this.head) {
+      return
     }
 
-    if (!current) {
-      this.addAtTail(val)
-      return
+    let current = this.head
+    for (let i = 0; i < index - 1; i++) {
+      if (current.next) {
+        current = current.next
+      } else {
+        return
+      }
     }
 
     const next = new Node({ val, next: current.next })
@@ -74,24 +67,31 @@ const LinkedList = function() {
   }
 
   this.deleteAtIndex = (index) => {
-    let itemIndex = 0
-    let current = this.head
-    while (current) {
-      if (itemIndex === index - 1) {
-        break
-      }
-
-      current = current.next
-      itemIndex++
-    }
-
-    if (!current) {
+    if (!this.head) {
       return
     }
 
-    current.next = current.next.next
+    if (index === 0) {
+      this.head = this.head.next
+      return
+    }
+
+    let current = this.head
+    for (let i = 0; i < index - 1; i++) {
+      if (current.next) {
+        current = current.next
+      } else {
+        return
+      }
+    }
+
+    if (!current.next) {
+      current.next = undefined
+    } else {
+      const a = current.next.next
+      current.next = a
+    }
   }
 }
-
 
 module.exports = LinkedList
