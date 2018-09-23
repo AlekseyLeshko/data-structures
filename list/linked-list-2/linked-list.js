@@ -62,6 +62,25 @@ const LinkedList = function() {
 
     this.head = newHead
   }
+
+  this.recursionReverse = () => {
+    if (!this.head) {
+      return
+    }
+
+    const recursionStep = (head, tail) => {
+      if (!head) {
+        return tail
+      }
+
+      return recursionStep(head.next, new Node({
+        value: head.value,
+        next: tail,
+      }))
+    }
+
+    this.head = recursionStep(this.head)
+  }
 }
 
 module.exports = LinkedList

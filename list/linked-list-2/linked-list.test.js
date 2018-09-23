@@ -40,4 +40,15 @@ describe('linked-list', () => {
 
     expect(list.toString()).toEqual('5 -> 4 -> 3')
   })
+
+  test('recursion reverse', () => {
+    list.add(3)
+    list.add(4)
+    list.add(5)
+
+    expect(list.toString()).toEqual('3 -> 4 -> 5')
+    list.recursionReverse()
+
+    expect(list.toString()).toEqual('5 -> 4 -> 3')
+  })
 })
