@@ -33,12 +33,30 @@ const LinkedList = function() {
 
     let currentNode = this.head
     let str = currentNode.toString()
-    while (currentNode && currentNode.next) {
+    while (currentNode.next) {
       currentNode = currentNode.next
       str += ` -> ${currentNode.toString()}`
     }
 
     return str
+  }
+
+  this.reverse = () => {
+    if (!this.head) {
+      return
+    }
+
+    let currentNode = this.head
+    let newHead = new Node({ value: currentNode.value })
+    while (currentNode.next) {
+      const tempNode = new Node({ value: currentNode.next.value })
+      tempNode.next = new Node({ value: newHead.value, next: newHead.next })
+      newHead = tempNode
+
+      currentNode = currentNode.next
+    }
+
+    this.head = newHead
   }
 }
 

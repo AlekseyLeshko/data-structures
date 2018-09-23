@@ -29,4 +29,15 @@ describe('linked-list', () => {
     list.add(5)
     expect(list.toString()).toEqual('3 -> 4 -> 5')
   })
+
+  test('reverse', () => {
+    list.add(3)
+    list.add(4)
+    list.add(5)
+
+    expect(list.toString()).toEqual('3 -> 4 -> 5')
+    list.reverse()
+
+    expect(list.toString()).toEqual('5 -> 4 -> 3')
+  })
 })
