@@ -19,4 +19,14 @@ describe('linked-list', () => {
     expect(list.head.next.value).toEqual(4)
     expect(list.head.next.next.value).toEqual(5)
   })
+
+  test('to string', () => {
+    expect(list.toString()).toEqual('')
+    list.add(3)
+    expect(list.toString()).toEqual('3')
+    list.add(4)
+    expect(list.toString()).toEqual('3 -> 4')
+    list.add(5)
+    expect(list.toString()).toEqual('3 -> 4 -> 5')
+  })
 })

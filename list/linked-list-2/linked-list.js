@@ -1,6 +1,10 @@
 const Node = function({ value, next }) {
   this.value = value
   this.next = next
+
+  this.toString = () => {
+    return this.value.toString()
+  }
 }
 
 const LinkedList = function() {
@@ -20,6 +24,21 @@ const LinkedList = function() {
     }
 
     currentNode.next = newNode
+  }
+
+  this.toString = () => {
+    if (!this.head) {
+      return ''
+    }
+
+    let currentNode = this.head
+    let str = currentNode.toString()
+    while (currentNode && currentNode.next) {
+      currentNode = currentNode.next
+      str += ` -> ${currentNode.toString()}`
+    }
+
+    return str
   }
 }
 
