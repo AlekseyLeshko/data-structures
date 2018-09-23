@@ -64,10 +64,6 @@ const LinkedList = function() {
   }
 
   this.recursionReverse = () => {
-    if (!this.head) {
-      return
-    }
-
     const recursionStep = (head, tail) => {
       if (!head) {
         return tail
