@@ -5,6 +5,10 @@ const Node = function({ value, next }) {
   this.toString = () => {
     return this.value.toString()
   }
+
+  this.getCopy = () => {
+    return new Node({ value: this.value, next: this.next })
+  }
 }
 
 const LinkedList = function() {
@@ -49,10 +53,10 @@ const LinkedList = function() {
     let currentNode = this.head
     let newHead = new Node({ value: currentNode.value })
     while (currentNode.next) {
-      const tempNode = new Node({ value: currentNode.next.value })
-      tempNode.next = new Node({ value: newHead.value, next: newHead.next })
-      newHead = tempNode
-
+      newHead = new Node({
+        value: currentNode.next.value,
+        next: newHead.getCopy(),
+      })
       currentNode = currentNode.next
     }
 
