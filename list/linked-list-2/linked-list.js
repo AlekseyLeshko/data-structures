@@ -77,6 +77,23 @@ const LinkedList = function() {
 
     this.head = recursionStep(this.head)
   }
+
+  this.recursionToString = () => {
+    const recursionStep = (current) => {
+      if (!current) {
+        return ''
+      }
+
+      let str = current.toString()
+      if (current.next) {
+        str += ' -> ' + recursionStep(current.next)
+      }
+
+      return str
+    }
+
+    return recursionStep(this.head)
+  }
 }
 
 module.exports = LinkedList
