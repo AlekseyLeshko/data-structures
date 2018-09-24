@@ -52,7 +52,7 @@ describe('linked-list', () => {
     expect(list.toString()).toEqual('5 -> 4 -> 3')
   })
 
-  test.only('recursion to string', () => {
+  test('recursion to string', () => {
     expect(list.recursionToString()).toEqual('')
     list.add(3)
     expect(list.recursionToString()).toEqual('3')
